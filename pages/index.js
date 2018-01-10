@@ -22,8 +22,8 @@ class IndexPage extends Component {
           const sketch = require(`../sketches/d${ind}`).default;
           return (
             <div key={`sketch-${ind}`} className="sketch-container">
-              <a onClick={() => Router.pushRoute(`/s/${ind}`) }>Full {ind}</a>
-              <P5Wrapper sketch={sketch(200, 300)}/>              
+              <a className="primary-button" onClick={() => Router.pushRoute(`/s/${ind}`) }>Full {ind}</a>
+              <P5Wrapper sketch={sketch(200, 300)}/>
             </div>
           )
         })}
@@ -38,12 +38,12 @@ class IndexPage extends Component {
       `}</style>
       </div>);
   }
-  
-  render() { 
+
+  render() {
     return (
       <Page>
         <Head>
-          <title>daily p5</title>          
+          <title>daily p5</title>
         </Head>
         <div>
           <h2>Sketches</h2>
@@ -53,5 +53,5 @@ class IndexPage extends Component {
     );
   }
 }
- 
+
 export default IndexPage;
