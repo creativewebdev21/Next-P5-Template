@@ -13,20 +13,27 @@ const P5Wrapper = dynamic(import('react-p5-wrapper'), {
 });
 
 class IndexPage extends Component {
-
-
-  renderSketchList = () => {
+  
+  render() { 
     return (
-      <div>
-        {_.range(1, TOTAL_SKETCHES+1).map(ind => {
-          const sketch = require(`../sketches/d${ind}`).default;
-          return (
-            <div key={`sketch-${ind}`} className="sketch-container">
-              <a className="primary-button" onClick={() => Router.pushRoute(`/s/${ind}`) }>Full {ind}</a>
-              <P5Wrapper sketch={sketch(200, 300)}/>
-            </div>
-          )
-        })}
+      <Page>
+        <Head>
+          <title>daily p5</title>          
+        </Head>
+        <div>
+          <h2>Sketches</h2>
+          <div>
+            {_.range(1, TOTAL_SKETCHES+1).map(ind => {
+              const sketch = require(`../sketches/d${ind}`).default;
+              return (
+                <div key={`sketch-${ind}`} className="sketch-container">
+                  <a className="primary-button" onClick={() => Router.pushRoute(`/s/${ind}`) }>Full {ind}</a>
+                  <P5Wrapper sketch={sketch(200, 300)}/>
+                </div>
+              )
+            })}
+          </div>
+        </div>
         <style jsx>{`
           .sketch-container {
             border-color: blue;
@@ -35,23 +42,10 @@ class IndexPage extends Component {
             overflow: hidden;
             padding: 10px;
           }
-      `}</style>
-      </div>);
-  }
-
-  render() {
-    return (
-      <Page>
-        <Head>
-          <title>daily p5</title>
-        </Head>
-        <div>
-          <h2>Sketches</h2>
-          {this.renderSketchList()}
-        </div>
+        `}</style>
       </Page>
     );
   }
 }
-
+ 
 export default IndexPage;
