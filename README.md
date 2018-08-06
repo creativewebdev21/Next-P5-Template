@@ -1,5 +1,7 @@
 # next-p5-template
 
+Note: This is deprecated in favor of [daily-p5](https://github.com/aunnnn/daily-p5), which is much easier and quicker to start coding.
+
 A template project to manage p5.js sketches. Built with Next.js.
 
 ### How to run
